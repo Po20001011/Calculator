@@ -8,6 +8,22 @@ body {
   margin: 0;
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#bubbleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .calculator {
   background: #333;
   border-radius: 10px;
@@ -15,10 +31,12 @@ body {
   overflow: hidden;
   width: 320px;
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .calculator-display {
-  background-color: #222;
+  background-color: #444;
   color: #fff;
   font-size: 2.5rem;
   padding: 20px;
@@ -45,14 +63,14 @@ body {
 }
 
 .btn {
-  background-color: #555;
+  background-color: #3e4e5e;
   border: none;
   border-radius: 5px;
   font-size: 1.5rem;
   padding: 20px;
   cursor: pointer;
   color: white;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s transform 0.1s;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -61,7 +79,8 @@ body {
 }
 
 .btn:active {
-  background-color: #444;
+  background-color: #2e3e4e;
+  transform: scale(0.95);
 }
 
 #clear {
@@ -87,4 +106,25 @@ body {
 
 #equals:active {
   background-color: #388e3c;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  .calculator-display {
+    font-size: 2rem;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
 }
